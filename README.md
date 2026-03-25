@@ -111,12 +111,10 @@ pnpm dev:storybook
 
 ---
 
-##Planned structure
+## Planned structure
 apps/
   docs/            # Next.js documentation site
   storybook/       # Storybook environment
-
-##Planned structure
 
 packages/
   tokens/          # Design tokens + Style Dictionary
