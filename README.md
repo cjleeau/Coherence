@@ -113,17 +113,17 @@ pnpm dev:storybook
 
 ## Planned structure
 
-apps/
-- docs/            # Next.js documentation site
-- storybook/       # Storybook environment
+apps/<br>
+  docs/            # Next.js documentation site<br>
+  storybook/       # Storybook environment<br>
 
-packages/
-- tokens/          # Design tokens + Style Dictionary
-- primitives/      # Layout and text primitives
-- components/      # React component library
-- patterns/        # Product patterns
-- themes/          # Theme definitions
-- utils-a11y/      # Accessibility helpers
+packages/<br>
+  tokens/          # Design tokens + Style Dictionary<br>
+  primitives/      # Layout and text primitives<br>
+  components/      # React component library<br>
+  patterns/        # Product patterns<br>
+  themes/          # Theme definitions<br>
+  utils-a11y/      # Accessibility helpers<br>
 
 ---
 
