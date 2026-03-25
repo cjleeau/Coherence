@@ -107,10 +107,16 @@ Next.js (documentation + system interface)
 pnpm install
 pnpm dev:docs
 pnpm dev:storybook
+```
 
+---
+
+##Planned structure
 apps/
   docs/            # Next.js documentation site
   storybook/       # Storybook environment
+
+##Planned structure
 
 packages/
   tokens/          # Design tokens + Style Dictionary
@@ -119,7 +125,7 @@ packages/
   patterns/        # Product patterns
   themes/          # Theme definitions
   utils-a11y/      # Accessibility helpers
-```
+
 ---
 
 ## Roadmap
