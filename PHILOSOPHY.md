@@ -1,4 +1,4 @@
- Coherence is about how systems hold together
+# Coherence is about how systems hold together
 
 Most design systems focus on what interfaces look like.
 
