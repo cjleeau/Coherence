@@ -1,4 +1,6 @@
 @import '../../../packages/tokens/dist/tokens.css';
+@import '../../../packages/tokens/dist/theme-light.css';
+@import '../../../packages/tokens/dist/theme-dark.css';
 
 :root {
   color-scheme: light;
@@ -12,23 +14,36 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-neutral-0);
-  color: var(--color-neutral-1000);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--theme-color-surface-canvas);
+  color: var(--theme-color-text-primary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-300);
+  line-height: var(--font-line-height-300);
 }
 
 main {
   min-height: 100vh;
-  padding: 48px;
+  padding: var(--space-800);
+}
+
+h1 {
+  margin: 0 0 var(--space-300);
+  font-size: var(--font-size-600);
+  line-height: var(--font-line-height-100);
+  font-weight: var(--font-weight-bold);
+}
+
+p {
+  margin: 0;
 }
 
 .section {
-  max-width: 960px;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
 .panel {
-  margin-top: 24px;
-  padding: 24px;
-  border-radius: 12px;
+  margin-top: var(--space-600);
+  padding: var(--space-600);
+  border-radius: var(--radius-lg);
 }

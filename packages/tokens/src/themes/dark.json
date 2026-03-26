@@ -1,0 +1,21 @@
+{
+  "theme": {
+    "color": {
+      "text": {
+        "primary": { "value": "{color.neutral.0.value}" },
+        "secondary": { "value": "{color.neutral.0.value}" },
+        "inverse": { "value": "{color.neutral.1000.value}" }
+      },
+      "surface": {
+        "primary": { "value": "{color.neutral.1000.value}" },
+        "canvas": { "value": "{color.neutral.1000.value}" }
+      },
+      "border": {
+        "default": { "value": "{color.blue.500.value}" }
+      },
+      "action": {
+        "primary": { "value": "{color.blue.500.value}" }
+      }
+    }
+  }
+}

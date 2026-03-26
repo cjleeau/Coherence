@@ -8,12 +8,12 @@ export default function HomePage() {
         <div
           className="panel"
           style={{
-            background: 'var(--color-neutral-0)',
-            color: 'var(--color-neutral-1000)',
-            border: '1px solid var(--color-blue-500)'
+            background: 'var(--theme-color-surface-primary)',
+            color: 'var(--theme-color-text-primary)',
+            border: '1px solid var(--theme-color-border-default)'
           }}
         >
-          Tokens are wired into the docs app.
+          Theme tokens are now driving UI usage.
         </div>
       </div>
     </main>
