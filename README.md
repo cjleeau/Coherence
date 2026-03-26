@@ -14,16 +14,16 @@ Most design systems standardise interfaces.
 
 Few address the deeper problem:
 
-> Systems drift. Interfaces diverge. Accessibility becomes inconsistent.  
+> Systems drift, interfaces diverge, accessibility becomes inconsistent.  
 > Value is lost between layers.
 
 Coherence exists to solve that.
 
 It ensures that:
 
-- design decisions remain aligned across products and teams
-- accessibility and inclusion are built in from the start
-- systems behave consistently, not just visually, but structurally
+- Design decisions remain aligned across products and teams
+- Accessibility and inclusion are built in from the start
+- Systems behave consistently, not just visually, but structurally
 
 ---
 
