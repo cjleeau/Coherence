@@ -1,20 +1,28 @@
+import { Box, Text } from '@coherence/primitives'
+
 export default function HomePage() {
   return (
     <main>
       <div className="section">
-        <h1>Coherence</h1>
-        <p>Token-driven, accessibility-first design system.</p>
+        <Text as="p" size="600" weight="bold" leading="100">
+          Coherence
+        </Text>
 
-        <div
+        <Text as="p" size="300" tone="primary">
+          Token-driven, accessibility-first design system.
+        </Text>
+
+        <Box
           className="panel"
-          style={{
-            background: 'var(--theme-color-surface-primary)',
-            color: 'var(--theme-color-text-primary)',
-            border: '1px solid var(--theme-color-border-default)'
-          }}
+          background="surface-primary"
+          borderColor="border-default"
+          padding="600"
+          radius="lg"
         >
-          Theme tokens are now driving UI usage.
-        </div>
+          <Text as="p" size="300" tone="primary">
+            Box v1 and Text v1 are now consuming token-driven primitive props.
+          </Text>
+        </Box>
       </div>
     </main>
   )

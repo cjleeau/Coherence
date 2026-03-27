@@ -17,24 +17,11 @@ body {
   background: var(--theme-color-surface-canvas);
   color: var(--theme-color-text-primary);
   font-family: var(--font-family-sans);
-  font-size: var(--font-size-300);
-  line-height: var(--font-line-height-300);
 }
 
 main {
   min-height: 100vh;
   padding: var(--space-800);
-}
-
-h1 {
-  margin: 0 0 var(--space-300);
-  font-size: var(--font-size-600);
-  line-height: var(--font-line-height-100);
-  font-weight: var(--font-weight-bold);
-}
-
-p {
-  margin: 0;
 }
 
 .section {
@@ -44,6 +31,4 @@ p {
 
 .panel {
   margin-top: var(--space-600);
-  padding: var(--space-600);
-  border-radius: var(--radius-lg);
 }
