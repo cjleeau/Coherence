@@ -14,9 +14,8 @@ export default function Page() {
   }, [theme]);
 
   return (
-    <Box className="min-h-screen bg-surface-base text-text-primary p-8 font-sans">
+    <Box className="min-h-screen bg-[var(--surface-base)] text-[var(--text-primary)] p-8 font-sans">
       <Stack className="mx-auto max-w-3xl" space="8">
-        {/* Header */}
         <Stack as="header" space="4">
           <Text size="sm" tone="secondary">
             Coherence / Primitives Foundation
@@ -27,11 +26,11 @@ export default function Page() {
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
-            This validates structure, typography, vertical rhythm and horizontal alignment against the token system.
+            This validates structure, typography, vertical rhythm and horizontal
+            alignment against the token system.
           </Text>
         </Stack>
 
-        {/* Theme switch */}
         <Inline space="3" wrap>
           {THEMES.map((t) => {
             const active = t === theme;
@@ -41,10 +40,10 @@ export default function Page() {
                 key={t}
                 onClick={() => setTheme(t)}
                 className={[
-                  "px-4 py-2 rounded-lg border text-sm transition",
+                  "rounded-lg border px-4 py-2 text-sm transition",
                   active
-                    ? "bg-action-primary text-action-primaryText border-border-strong"
-                    : "bg-surface-raised text-text-primary border-border-subtle hover:border-border-strong"
+                    ? "bg-[var(--action-primary)] text-[var(--action-primaryText)] border-[var(--border-strong)]"
+                    : "bg-[var(--surface-raised)] text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
                 ].join(" ")}
               >
                 {t}
@@ -53,14 +52,10 @@ export default function Page() {
           })}
         </Inline>
 
-        {/* Content card */}
-        <Box className="rounded-xl border border-border-subtle bg-surface-raised p-6">
+        <Box className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-6">
           <Stack space="6">
-            {/* Text system */}
             <Stack space="3">
-              <Text>
-                Primary body text through the Text primitive.
-              </Text>
+              <Text>Primary body text through the Text primitive.</Text>
 
               <Text tone="secondary">
                 Secondary text through semantic tone mapping.
@@ -71,7 +66,6 @@ export default function Page() {
               </Text>
             </Stack>
 
-            {/* Heading scale */}
             <Stack space="2">
               <Heading size="4xl">Heading 4xl</Heading>
               <Heading size="3xl">Heading 3xl</Heading>
@@ -80,13 +74,12 @@ export default function Page() {
               <Heading size="lg">Heading lg</Heading>
             </Stack>
 
-            {/* Inline layout */}
             <Inline space="4" align="center" wrap>
-              <Box className="rounded-lg bg-action-primary px-4 py-3 text-action-primaryText">
+              <Box className="rounded-lg bg-[var(--action-primary)] px-4 py-3 text-[var(--action-primaryText)]">
                 Primary action
               </Box>
 
-              <Box className="rounded-lg border border-border-strong bg-surface-sunken px-4 py-3 text-text-primary">
+              <Box className="rounded-lg border border-[var(--border-strong)] bg-[var(--surface-sunken)] px-4 py-3 text-[var(--text-primary)]">
                 Secondary container
               </Box>
 
