@@ -1,12 +1,11 @@
-import type { ComponentPropsWithoutRef, ElementType } from "react";
+import type { ElementType } from "react";
 import { cx } from "../utils/cx";
-import type { PrimitiveProps } from "../types";
+import type { PolymorphicProps } from "../types";
 
 type HeadingSize = "sm" | "md" | "lg" | "xl";
 type HeadingTone = "primary" | "secondary";
 
-type HeadingProps<T extends ElementType> = PrimitiveProps<T> & {
-  as?: T;
+type HeadingProps<T extends ElementType> = PolymorphicProps<T> & {
   size?: HeadingSize;
   tone?: HeadingTone;
 };
@@ -30,9 +29,8 @@ export function Heading<T extends ElementType = "h2">({
   size = "md",
   tone = "primary",
   ...rest
-}: HeadingProps<T> &
-  Omit<ComponentPropsWithoutRef<T>, keyof HeadingProps<T>>) {
-  const Component = as || "h2";
+}: HeadingProps<T>) {
+  const Component = (as || "h2") as ElementType;
 
   return (
     <Component

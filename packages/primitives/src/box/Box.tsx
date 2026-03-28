@@ -1,19 +1,18 @@
-import type { ElementType, ComponentPropsWithoutRef } from "react";
-import { cx } from "../utils/cx";
-import type { PrimitiveProps } from "../types";
+import type { PrimitiveElement, PolymorphicProps } from "../types";
 
-type BoxProps<T extends ElementType> = PrimitiveProps<T> & {
-  as?: T;
-};
+export type BoxProps<T extends PrimitiveElement = "div"> = PolymorphicProps<T>;
 
-export function Box<T extends ElementType = "div">({
+function cx(...values: Array<string | undefined | false | null>) {
+  return values.filter(Boolean).join(" ");
+}
+
+export function Box<T extends PrimitiveElement = "div">({
   as,
   children,
   className,
   ...rest
-}: BoxProps<T> &
-  Omit<ComponentPropsWithoutRef<T>, keyof BoxProps<T>>) {
-  const Component = as || "div";
+}: BoxProps<T>) {
+  const Component = (as || "div") as PrimitiveElement;
 
   return (
     <Component className={cx(className)} {...rest}>
