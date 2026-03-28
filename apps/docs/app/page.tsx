@@ -14,7 +14,10 @@ export default function Page() {
   }, [theme]);
 
   return (
-    <Box className="min-h-screen bg-[var(--surface-base)] text-[var(--text-primary)] p-8 font-sans">
+    <Box
+      className="min-h-screen bg-[var(--surface-base)] text-[var(--text-primary)] p-8"
+      style={{ fontFamily: "var(--font-family-sans)" }}
+    >
       <Stack className="mx-auto max-w-3xl" space="8">
         <Stack as="header" space="4">
           <Text size="sm" tone="secondary">
