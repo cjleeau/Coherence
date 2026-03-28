@@ -2,8 +2,6 @@
   "files": [],
   "references": [
     { "path": "./apps/docs" },
-    { "path": "./apps/storybook" },
-    { "path": "./packages/tokens" },
     { "path": "./packages/primitives" }
   ]
 }

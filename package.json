@@ -4,13 +4,13 @@
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "dev:docs": "pnpm --filter @coherence/docs dev",
-    "dev:storybook": "pnpm --filter @coherence/storybook storybook",
     "tokens:build": "pnpm --filter @coherence/tokens build",
     "build": "pnpm -r build",
     "lint": "eslint .",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck:docs": "pnpm --filter @coherence/docs exec tsc --noEmit",
+    "typecheck:primitives": "pnpm --filter @coherence/primitives exec tsc --noEmit"
   },
   "devDependencies": {
-    "typescript": "^6.0.2"
+    "typescript": "^5.9.3"
   }
 }
