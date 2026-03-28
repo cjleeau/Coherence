@@ -15,8 +15,9 @@ export default function Page() {
 
   return (
     <Box
-      className="min-h-screen bg-[var(--surface-base)] text-[var(--text-primary)] p-8"
-      style={{ fontFamily: "var(--font-family-sans)" }}
+      className="min-h-screen p-8"
+      surface="base"
+      style={{ color: "var(--text-primary)", fontFamily: "var(--font-family-sans)" }}
     >
       <Stack className="mx-auto max-w-3xl" space="8">
         <Stack as="header" space="4">
@@ -55,7 +56,7 @@ export default function Page() {
           })}
         </Inline>
 
-        <Box className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-raised)] p-6">
+        <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="6">
             <Stack space="3">
               <Text>Primary body text through the Text primitive.</Text>
@@ -78,11 +79,22 @@ export default function Page() {
             </Stack>
 
             <Inline space="4" align="center" wrap>
-              <Box className="rounded-lg bg-[var(--action-primary)] px-4 py-3 text-[var(--action-primaryText)]">
+              <Box
+                className="rounded-lg px-4 py-3"
+                style={{
+                  backgroundColor: "var(--action-primary)",
+                  color: "var(--action-primaryText)"
+                }}
+              >
                 Primary action
               </Box>
 
-              <Box className="rounded-lg border border-[var(--border-strong)] bg-[var(--surface-sunken)] px-4 py-3 text-[var(--text-primary)]">
+              <Box
+                className="rounded-lg px-4 py-3"
+                surface="sunken"
+                border="strong"
+                style={{ color: "var(--text-primary)" }}
+              >
                 Secondary container
               </Box>
 

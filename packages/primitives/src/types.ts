@@ -45,3 +45,6 @@ export type FontWeightToken =
 
 export type TextToneToken = "primary" | "secondary" | "muted" | "inverse";
 export type HeadingToneToken = "primary" | "secondary";
+
+export type SurfaceToneToken = "base" | "raised" | "sunken" | "inverse";
+export type BorderToneToken = "none" | "subtle" | "strong" | "inverse";
