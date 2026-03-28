@@ -1,17 +1,20 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import "@coherence/tokens/css";
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Coherence',
-  description: 'Token-driven, accessibility-first design system'
-}
+  title: "Coherence Docs",
+  description: "Coherence design system foundation"
+};
 
 export default function RootLayout({
   children
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" data-theme="hc-dark">
+    <html lang="en" data-theme="light">
       <body>{children}</body>
     </html>
-  )
+  );
 }

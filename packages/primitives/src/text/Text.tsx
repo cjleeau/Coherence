@@ -1,34 +1,44 @@
-import type { ComponentPropsWithoutRef, ElementType } from "react";
+import type { CSSProperties, ElementType } from "react";
 import { cx } from "../utils/cx";
-import type { PrimitiveProps } from "../types";
+import type {
+  FontSizeToken,
+  FontWeightToken,
+  PolymorphicProps,
+  TextToneToken
+} from "../types";
 
-type TextTone = "primary" | "secondary" | "muted";
-type TextSize = "sm" | "md" | "lg";
-type TextWeight = "regular" | "medium" | "semibold";
+type TextSize = Extract<FontSizeToken, "sm" | "md" | "lg">;
+type TextWeight = Extract<FontWeightToken, "regular" | "medium" | "semibold">;
+type TextTone = Extract<TextToneToken, "primary" | "secondary" | "muted">;
 
-type TextProps<T extends ElementType> = PrimitiveProps<T> & {
-  as?: T;
+type TextProps<T extends ElementType> = PolymorphicProps<T> & {
   tone?: TextTone;
   size?: TextSize;
   weight?: TextWeight;
 };
 
-const toneClasses: Record<TextTone, string> = {
-  primary: "text-text-primary",
-  secondary: "text-text-secondary",
-  muted: "text-text-muted"
+const toneStyles: Record<TextTone, CSSProperties> = {
+  primary: { color: "var(--text-primary)" },
+  secondary: { color: "var(--text-secondary)" },
+  muted: { color: "var(--text-muted)" }
 };
 
-const sizeClasses: Record<TextSize, string> = {
-  sm: "text-sm",
-  md: "text-md",
-  lg: "text-lg"
+const sizeStyles: Record<TextSize, CSSProperties> = {
+  sm: { fontSize: "var(--font-size-sm)" },
+  md: { fontSize: "var(--font-size-md)" },
+  lg: { fontSize: "var(--font-size-lg)" }
 };
 
-const weightClasses: Record<TextWeight, string> = {
-  regular: "font-normal",
-  medium: "font-medium",
-  semibold: "font-semibold"
+const weightStyles: Record<TextWeight, CSSProperties> = {
+  regular: { fontWeight: "var(--font-weight-regular)" },
+  medium: { fontWeight: "var(--font-weight-medium)" },
+  semibold: { fontWeight: "var(--font-weight-semibold)" }
+};
+
+const lineHeightStyles: Record<TextSize, CSSProperties> = {
+  sm: { lineHeight: "var(--font-lineHeight-normal)" },
+  md: { lineHeight: "var(--font-lineHeight-normal)" },
+  lg: { lineHeight: "var(--font-lineHeight-relaxed)" }
 };
 
 export function Text<T extends ElementType = "p">({
@@ -38,19 +48,23 @@ export function Text<T extends ElementType = "p">({
   tone = "primary",
   size = "md",
   weight = "regular",
+  style,
   ...rest
-}: TextProps<T> &
-  Omit<ComponentPropsWithoutRef<T>, keyof TextProps<T>>) {
-  const Component = as || "p";
+}: TextProps<T>) {
+  const Component = (as || "p") as ElementType;
 
   return (
     <Component
-      className={cx(
-        toneClasses[tone],
-        sizeClasses[size],
-        weightClasses[weight],
-        className
-      )}
+      className={cx(className)}
+      style={
+        {
+          ...toneStyles[tone],
+          ...sizeStyles[size],
+          ...weightStyles[weight],
+          ...lineHeightStyles[size],
+          ...((style as CSSProperties | undefined) ?? {})
+        } as CSSProperties
+      }
       {...rest}
     >
       {children}

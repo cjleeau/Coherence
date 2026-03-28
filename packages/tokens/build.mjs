@@ -10,8 +10,13 @@ function flattenTokens(tokens, currentPath = [], result = {}) {
   for (const [key, value] of Object.entries(tokens)) {
     const nextPath = [...currentPath, key];
 
-    if (value && typeof value === "object" && "value" in value) {
-      result[nextPath.join(".")] = value.value;
+    if (
+      value === null ||
+      typeof value === "string" ||
+      typeof value === "number" ||
+      typeof value === "boolean"
+    ) {
+      result[nextPath.join(".")] = value;
     } else if (value && typeof value === "object") {
       flattenTokens(value, nextPath, result);
     }

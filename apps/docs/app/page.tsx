@@ -14,10 +14,14 @@ export default function Page() {
   }, [theme]);
 
   return (
-    <Box className="min-h-screen bg-surface-base text-text-primary p-8 font-sans">
-      <Stack className="mx-auto max-w-3xl" space="6">
+    <Box
+      className="min-h-screen p-8"
+      surface="base"
+      style={{ color: "var(--text-primary)", fontFamily: "var(--font-family-sans)" }}
+    >
+      <Stack className="mx-auto max-w-3xl" space="8">
         <Stack as="header" space="4">
-          <Text as="p" size="sm" tone="secondary">
+          <Text size="sm" tone="secondary">
             Coherence / Primitives Foundation
           </Text>
 
@@ -25,9 +29,9 @@ export default function Page() {
             Box, Text, Heading, Stack and Inline are live
           </Heading>
 
-          <Text as="p" size="lg" tone="secondary" className="max-w-2xl">
-            This proves the first primitive layer is handling structure, text,
-            hierarchy, vertical rhythm and horizontal alignment using the token system.
+          <Text size="lg" tone="secondary" className="max-w-2xl">
+            This validates structure, typography, vertical rhythm and horizontal
+            alignment against the token system.
           </Text>
         </Stack>
 
@@ -40,10 +44,10 @@ export default function Page() {
                 key={t}
                 onClick={() => setTheme(t)}
                 className={[
-                  "px-4 py-2 rounded-lg border text-sm transition",
+                  "rounded-lg border px-4 py-2 text-sm transition",
                   active
-                    ? "bg-action-primary text-action-primaryText border-border-strong"
-                    : "bg-surface-raised text-text-primary border-border-subtle hover:border-border-strong"
+                    ? "bg-[var(--action-primary)] text-[var(--action-primaryText)] border-[var(--border-strong)]"
+                    : "bg-[var(--surface-raised)] text-[var(--text-primary)] border-[var(--border-subtle)] hover:border-[var(--border-strong)]"
                 ].join(" ")}
               >
                 {t}
@@ -52,24 +56,45 @@ export default function Page() {
           })}
         </Inline>
 
-        <Box className="rounded-xl border border-border-subtle bg-surface-raised p-6">
-          <Stack space="4">
-            <Stack space="2">
+        <Box className="rounded-xl p-6" surface="raised" border="subtle">
+          <Stack space="6">
+            <Stack space="3">
               <Text>Primary body text through the Text primitive.</Text>
+
               <Text tone="secondary">
                 Secondary text through semantic tone mapping.
               </Text>
+
               <Text tone="muted" size="sm">
                 Muted supporting text through the same primitive.
               </Text>
             </Stack>
 
-            <Inline space="3" align="center" wrap>
-              <Box className="rounded-lg bg-action-primary px-4 py-3 text-action-primaryText">
+            <Stack space="2">
+              <Heading size="4xl">Heading 4xl</Heading>
+              <Heading size="3xl">Heading 3xl</Heading>
+              <Heading size="2xl">Heading 2xl</Heading>
+              <Heading size="xl">Heading xl</Heading>
+              <Heading size="lg">Heading lg</Heading>
+            </Stack>
+
+            <Inline space="4" align="center" wrap>
+              <Box
+                className="rounded-lg px-4 py-3"
+                style={{
+                  backgroundColor: "var(--action-primary)",
+                  color: "var(--action-primaryText)"
+                }}
+              >
                 Primary action
               </Box>
 
-              <Box className="rounded-lg border border-border-strong bg-surface-sunken px-4 py-3 text-text-primary">
+              <Box
+                className="rounded-lg px-4 py-3"
+                surface="sunken"
+                border="strong"
+                style={{ color: "var(--text-primary)" }}
+              >
                 Secondary container
               </Box>
 
