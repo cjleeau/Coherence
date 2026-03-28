@@ -22,8 +22,8 @@ const sizeClasses: Record<HeadingSize, string> = {
 };
 
 const toneClasses: Record<HeadingToneToken, string> = {
-  primary: "text-text-primary",
-  secondary: "text-text-secondary"
+  primary: "text-[var(--text-primary)]",
+  secondary: "text-[var(--text-secondary)]"
 };
 
 export function Heading<T extends ElementType = "h2">({

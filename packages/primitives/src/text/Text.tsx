@@ -9,20 +9,18 @@ import type {
 
 type TextSize = Extract<FontSizeToken, "sm" | "md" | "lg">;
 type TextWeight = Extract<FontWeightToken, "regular" | "medium" | "semibold">;
+type TextTone = Extract<TextToneToken, "primary" | "secondary" | "muted">;
 
 type TextProps<T extends ElementType> = PolymorphicProps<T> & {
-  tone?: Extract<TextToneToken, "primary" | "secondary" | "muted">;
+  tone?: TextTone;
   size?: TextSize;
   weight?: TextWeight;
 };
 
-const toneClasses: Record<
-  Extract<TextToneToken, "primary" | "secondary" | "muted">,
-  string
-> = {
-  primary: "text-text-primary",
-  secondary: "text-text-secondary",
-  muted: "text-text-muted"
+const toneClasses: Record<TextTone, string> = {
+  primary: "text-[var(--text-primary)]",
+  secondary: "text-[var(--text-secondary)]",
+  muted: "text-[var(--text-muted)]"
 };
 
 const sizeClasses: Record<TextSize, string> = {

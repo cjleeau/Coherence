@@ -15,9 +15,10 @@ export default function Page() {
 
   return (
     <Box className="min-h-screen bg-surface-base text-text-primary p-8 font-sans">
-      <Stack className="mx-auto max-w-3xl" space="6">
+      <Stack className="mx-auto max-w-3xl" space="8">
+        {/* Header */}
         <Stack as="header" space="4">
-          <Text as="p" size="sm" tone="secondary">
+          <Text size="sm" tone="secondary">
             Coherence / Primitives Foundation
           </Text>
 
@@ -25,12 +26,12 @@ export default function Page() {
             Box, Text, Heading, Stack and Inline are live
           </Heading>
 
-          <Text as="p" size="lg" tone="secondary" className="max-w-2xl">
-            This proves the first primitive layer is handling structure, text,
-            hierarchy, vertical rhythm and horizontal alignment using the token system.
+          <Text size="lg" tone="secondary" className="max-w-2xl">
+            This validates structure, typography, vertical rhythm and horizontal alignment against the token system.
           </Text>
         </Stack>
 
+        {/* Theme switch */}
         <Inline space="3" wrap>
           {THEMES.map((t) => {
             const active = t === theme;
@@ -52,19 +53,35 @@ export default function Page() {
           })}
         </Inline>
 
+        {/* Content card */}
         <Box className="rounded-xl border border-border-subtle bg-surface-raised p-6">
-          <Stack space="4">
-            <Stack space="2">
-              <Text>Primary body text through the Text primitive.</Text>
+          <Stack space="6">
+            {/* Text system */}
+            <Stack space="3">
+              <Text>
+                Primary body text through the Text primitive.
+              </Text>
+
               <Text tone="secondary">
                 Secondary text through semantic tone mapping.
               </Text>
+
               <Text tone="muted" size="sm">
                 Muted supporting text through the same primitive.
               </Text>
             </Stack>
 
-            <Inline space="3" align="center" wrap>
+            {/* Heading scale */}
+            <Stack space="2">
+              <Heading size="4xl">Heading 4xl</Heading>
+              <Heading size="3xl">Heading 3xl</Heading>
+              <Heading size="2xl">Heading 2xl</Heading>
+              <Heading size="xl">Heading xl</Heading>
+              <Heading size="lg">Heading lg</Heading>
+            </Stack>
+
+            {/* Inline layout */}
+            <Inline space="4" align="center" wrap>
               <Box className="rounded-lg bg-action-primary px-4 py-3 text-action-primaryText">
                 Primary action
               </Box>
