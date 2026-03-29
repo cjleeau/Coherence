@@ -1,15 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button, Field, Checkbox, Textarea } from "@coherence/components";
+import {
+  Button,
+  Field,
+  Checkbox,
+  Textarea,
+  Select
+} from "@coherence/components";
 import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
 const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
 
 const PRIMITIVES_COMPLETE = ["Box", "Stack", "Inline", "Text", "Heading"] as const;
-const COMPONENTS_COMPLETE = ["Button", "Field", "Checkbox", "Textarea"] as const;
-const NEXT_UP = ["Select", "FieldGroup"] as const;
+const COMPONENTS_COMPLETE = ["Button", "Field", "Checkbox", "Textarea", "Select"] as const;
+const NEXT_UP = ["FieldGroup"] as const;
+
+const ROLE_OPTIONS = [
+  { label: "Designer", value: "designer" },
+  { label: "Engineer", value: "engineer" },
+  { label: "Product Manager", value: "product-manager" }
+] as const;
+
+const ENVIRONMENT_OPTIONS = [
+  { label: "Development", value: "development" },
+  { label: "Staging", value: "staging" },
+  { label: "Production", value: "production" }
+] as const;
 
 export default function Page() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -185,6 +203,28 @@ export default function Page() {
                 label="Risk notes"
                 placeholder="Document any issues here..."
                 error="Risk notes are required."
+              />
+
+              <Select
+                label="Role"
+                options={[...ROLE_OPTIONS]}
+                placeholder="Select a role"
+                defaultValue=""
+                hint="Choose the primary role for this user."
+              />
+
+              <Select
+                label="Environment"
+                options={[...ENVIRONMENT_OPTIONS]}
+                defaultValue="staging"
+              />
+
+              <Select
+                label="Release target"
+                options={[...ENVIRONMENT_OPTIONS]}
+                placeholder="Select a target"
+                defaultValue=""
+                error="Release target is required."
               />
             </Stack>
           </Stack>

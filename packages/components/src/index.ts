@@ -9,3 +9,6 @@ export type { CheckboxProps } from "./checkbox/Checkbox";
 
 export { Textarea } from "./textarea/Textarea";
 export type { TextareaProps } from "./textarea/Textarea";
+
+export { Select } from "./select/Select";
+export type { SelectProps, SelectOption } from "./select/Select";
