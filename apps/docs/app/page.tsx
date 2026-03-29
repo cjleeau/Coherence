@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button, Field, Checkbox } from "@coherence/components";
+import { Button, Field, Checkbox, Textarea } from "@coherence/components";
 import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
 const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
 
 const PRIMITIVES_COMPLETE = ["Box", "Stack", "Inline", "Text", "Heading"] as const;
-const COMPONENTS_COMPLETE = ["Button", "Field", "Checkbox"] as const;
-const NEXT_UP = ["Textarea", "Select", "FieldGroup"] as const;
+const COMPONENTS_COMPLETE = ["Button", "Field", "Checkbox", "Textarea"] as const;
+const NEXT_UP = ["Select", "FieldGroup"] as const;
 
 export default function Page() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -60,7 +60,11 @@ export default function Page() {
         </Inline>
 
         <Inline space="6" align="start" wrap>
-          <Box className="min-w-[260px] flex-1 rounded-xl p-6" surface="raised" border="subtle">
+          <Box
+            className="min-w-[260px] flex-1 rounded-xl p-6"
+            surface="raised"
+            border="subtle"
+          >
             <Stack space="4">
               <Heading size="lg">Complete now</Heading>
 
@@ -69,7 +73,12 @@ export default function Page() {
 
                 <Stack space="2">
                   {PRIMITIVES_COMPLETE.map((item) => (
-                    <Box key={item} className="rounded-lg px-3 py-2" surface="sunken" border="subtle">
+                    <Box
+                      key={item}
+                      className="rounded-lg px-3 py-2"
+                      surface="sunken"
+                      border="subtle"
+                    >
                       <Text>{item}</Text>
                     </Box>
                   ))}
@@ -81,7 +90,12 @@ export default function Page() {
 
                 <Stack space="2">
                   {COMPONENTS_COMPLETE.map((item) => (
-                    <Box key={item} className="rounded-lg px-3 py-2" surface="sunken" border="subtle">
+                    <Box
+                      key={item}
+                      className="rounded-lg px-3 py-2"
+                      surface="sunken"
+                      border="subtle"
+                    >
                       <Text>{item}</Text>
                     </Box>
                   ))}
@@ -90,13 +104,22 @@ export default function Page() {
             </Stack>
           </Box>
 
-          <Box className="min-w-[260px] flex-1 rounded-xl p-6" surface="raised" border="subtle">
+          <Box
+            className="min-w-[260px] flex-1 rounded-xl p-6"
+            surface="raised"
+            border="subtle"
+          >
             <Stack space="4">
               <Heading size="lg">Next phase</Heading>
 
               <Stack space="2">
                 {NEXT_UP.map((item) => (
-                  <Box key={item} className="rounded-lg px-3 py-2" surface="sunken" border="subtle">
+                  <Box
+                    key={item}
+                    className="rounded-lg px-3 py-2"
+                    surface="sunken"
+                    border="subtle"
+                  >
                     <Text>{item}</Text>
                   </Box>
                 ))}
@@ -145,6 +168,24 @@ export default function Page() {
               />
 
               <Checkbox label="Disabled option" disabled />
+
+              <Textarea
+                label="Project summary"
+                placeholder="Write a short summary..."
+                hint="Keep it brief and clear."
+              />
+
+              <Textarea
+                label="Implementation notes"
+                defaultValue="Primitive layer complete. Components now in progress."
+                rows={5}
+              />
+
+              <Textarea
+                label="Risk notes"
+                placeholder="Document any issues here..."
+                error="Risk notes are required."
+              />
             </Stack>
           </Stack>
         </Box>
