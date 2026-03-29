@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@coherence/components": "workspace:*",
     "@coherence/primitives": "workspace:*",
     "@coherence/tokens": "workspace:*",
     "next": "16.2.1",

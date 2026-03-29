@@ -14,6 +14,9 @@ importers:
 
   apps/docs:
     dependencies:
+      '@coherence/components':
+        specifier: workspace:*
+        version: link:../../packages/components
       '@coherence/primitives':
         specifier: workspace:*
         version: link:../../packages/primitives
@@ -60,6 +63,22 @@ importers:
       typescript:
         specifier: ^5
         version: 5.9.3
+
+  packages/components:
+    dependencies:
+      react:
+        specifier: ^19.0.0
+        version: 19.2.4
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.2.4(react@19.2.4)
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.14)
 
   packages/primitives:
     dependencies:
