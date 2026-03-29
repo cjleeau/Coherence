@@ -7,7 +7,8 @@ import {
   Checkbox,
   Textarea,
   Select,
-  FieldGroup
+  FieldGroup,
+  FormActions
 } from "@coherence/components";
 import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
@@ -21,9 +22,10 @@ const COMPONENTS_COMPLETE = [
   "Checkbox",
   "Textarea",
   "Select",
-  "FieldGroup"
+  "FieldGroup",
+  "FormActions"
 ] as const;
-const NEXT_UP = ["Form actions and layout polish"] as const;
+const NEXT_UP = ["Merge components baseline", "Storybook or docs expansion"] as const;
 
 const ROLE_OPTIONS = [
   { label: "Designer", value: "designer" },
@@ -53,7 +55,7 @@ export default function Page() {
         fontFamily: "var(--font-family-sans)"
       }}
     >
-      <Stack className="mx-auto max-w-4xl" space="8">
+      <Stack className="mx-auto max-w-5xl" space="8">
         <Stack as="header" space="4">
           <Text size="sm" tone="secondary">
             Coherence / Dev Page
@@ -64,8 +66,8 @@ export default function Page() {
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
-            This page is for validating what is complete now and making the next
-            phase obvious.
+            This page validates the current primitives and components baseline,
+            with grouped form sections and consistent action layout.
           </Text>
         </Stack>
 
@@ -155,7 +157,7 @@ export default function Page() {
         </Inline>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="5">
+          <Stack space="6">
             <Heading size="lg">Live validation</Heading>
 
             <Inline space="4" align="center" wrap>
@@ -166,7 +168,7 @@ export default function Page() {
               </Button>
             </Inline>
 
-            <Stack space="4">
+            <Stack space="5">
               <FieldGroup
                 title="Basic fields"
                 description="Single-line inputs for account and project metadata."
@@ -280,6 +282,12 @@ export default function Page() {
                   error="You must confirm before continuing."
                 />
               </FieldGroup>
+
+              <FormActions>
+                <Button variant="secondary">Cancel</Button>
+                <Button variant="secondary">Save draft</Button>
+                <Button variant="primary">Submit</Button>
+              </FormActions>
             </Stack>
           </Stack>
         </Box>

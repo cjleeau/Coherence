@@ -15,3 +15,6 @@ export type { SelectProps, SelectOption } from "./select/Select";
 
 export { FieldGroup } from "./field-group/FieldGroup";
 export type { FieldGroupProps } from "./field-group/FieldGroup";
+
+export { FormActions } from "./form-actions/FormActions";
+export type { FormActionsProps } from "./form-actions/FormActions";
