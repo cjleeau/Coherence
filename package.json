@@ -4,6 +4,8 @@
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "dev:docs": "pnpm --filter @coherence/docs dev",
+    "dev:storybook": "pnpm --filter @coherence/storybook storybook",
+    "build:storybook": "pnpm --filter @coherence/storybook build-storybook",
     "build": "pnpm -r build",
     "lint": "eslint .",
     "typecheck": "pnpm -r exec tsc --noEmit"
