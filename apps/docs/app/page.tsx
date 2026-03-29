@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@coherence/components";
+import { Button, Field, Checkbox } from "@coherence/components";
 import { Box, Text, Heading, Stack, Inline } from "@coherence/primitives";
 
 const THEMES = ["light", "dark", "hc-light", "hc-dark"] as const;
 type Theme = (typeof THEMES)[number];
+
+const PRIMITIVES_COMPLETE = ["Box", "Stack", "Inline", "Text", "Heading"] as const;
+const COMPONENTS_COMPLETE = ["Button", "Field", "Checkbox"] as const;
+const NEXT_UP = ["Textarea", "Select", "FieldGroup"] as const;
 
 export default function Page() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -23,19 +27,19 @@ export default function Page() {
         fontFamily: "var(--font-family-sans)"
       }}
     >
-      <Stack className="mx-auto max-w-3xl" space="8">
+      <Stack className="mx-auto max-w-4xl" space="8">
         <Stack as="header" space="4">
           <Text size="sm" tone="secondary">
-            Coherence / Components v1
+            Coherence / Dev Page
           </Text>
 
           <Heading as="h1" size="xl">
-            First component: Button
+            Current build state
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
-            This validates the first component layer using native button behaviour
-            and token styling on top of the primitive foundation.
+            This page is for validating what is complete now and making the next
+            phase obvious.
           </Text>
         </Stack>
 
@@ -53,52 +57,95 @@ export default function Page() {
               </Button>
             );
           })}
+        </Inline>
 
-          <Button variant="secondary" disabled>
-            Disabled
-          </Button>
+        <Inline space="6" align="start" wrap>
+          <Box className="min-w-[260px] flex-1 rounded-xl p-6" surface="raised" border="subtle">
+            <Stack space="4">
+              <Heading size="lg">Complete now</Heading>
+
+              <Stack space="2">
+                <Text weight="semibold">Primitives</Text>
+
+                <Stack space="2">
+                  {PRIMITIVES_COMPLETE.map((item) => (
+                    <Box key={item} className="rounded-lg px-3 py-2" surface="sunken" border="subtle">
+                      <Text>{item}</Text>
+                    </Box>
+                  ))}
+                </Stack>
+              </Stack>
+
+              <Stack space="2">
+                <Text weight="semibold">Components</Text>
+
+                <Stack space="2">
+                  {COMPONENTS_COMPLETE.map((item) => (
+                    <Box key={item} className="rounded-lg px-3 py-2" surface="sunken" border="subtle">
+                      <Text>{item}</Text>
+                    </Box>
+                  ))}
+                </Stack>
+              </Stack>
+            </Stack>
+          </Box>
+
+          <Box className="min-w-[260px] flex-1 rounded-xl p-6" surface="raised" border="subtle">
+            <Stack space="4">
+              <Heading size="lg">Next phase</Heading>
+
+              <Stack space="2">
+                {NEXT_UP.map((item) => (
+                  <Box key={item} className="rounded-lg px-3 py-2" surface="sunken" border="subtle">
+                    <Text>{item}</Text>
+                  </Box>
+                ))}
+              </Stack>
+            </Stack>
+          </Box>
         </Inline>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="6">
-            <Stack space="3">
-              <Text>Primary body text through the Text primitive.</Text>
-
-              <Text tone="secondary">
-                Secondary text through semantic tone mapping.
-              </Text>
-
-              <Text tone="muted" size="sm">
-                Muted supporting text through the same primitive.
-              </Text>
-            </Stack>
-
-            <Stack space="2">
-              <Heading size="4xl">Heading 4xl</Heading>
-              <Heading size="3xl">Heading 3xl</Heading>
-              <Heading size="2xl">Heading 2xl</Heading>
-              <Heading size="xl">Heading xl</Heading>
-              <Heading size="lg">Heading lg</Heading>
-            </Stack>
+          <Stack space="5">
+            <Heading size="lg">Live validation</Heading>
 
             <Inline space="4" align="center" wrap>
-              <Button variant="primary">Primary</Button>
-
-              <Button variant="secondary">Secondary</Button>
-
-              <Box
-                className="rounded-lg px-4 py-3"
-                surface="sunken"
-                border="strong"
-                style={{ color: "var(--text-primary)" }}
-              >
-                Container
-              </Box>
-
-              <Text tone="secondary" size="sm">
-                Inline layout validation.
-              </Text>
+              <Button variant="primary">Primary Button</Button>
+              <Button variant="secondary">Secondary Button</Button>
+              <Button variant="secondary" disabled>
+                Disabled Button
+              </Button>
             </Inline>
+
+            <Stack space="4">
+              <Field
+                label="Email"
+                type="email"
+                placeholder="you@example.com"
+                hint="Use your work email address."
+              />
+
+              <Field
+                label="Project name"
+                placeholder="Coherence Design System"
+                defaultValue="Coherence"
+              />
+
+              <Field
+                label="Account ID"
+                placeholder="Enter account ID"
+                error="Account ID is required."
+              />
+
+              <Checkbox label="Accept terms and conditions" />
+
+              <Checkbox
+                label="Subscribe to updates"
+                hint="You can unsubscribe at any time."
+              />
+
+              <Checkbox label="Disabled option" disabled />
+            </Stack>
           </Stack>
         </Box>
       </Stack>

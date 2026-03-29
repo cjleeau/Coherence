@@ -3,3 +3,6 @@ export type { ButtonProps } from "./button/Button";
 
 export { Field } from "./field/Field";
 export type { FieldProps } from "./field/Field";
+
+export { Checkbox } from "./checkbox/Checkbox";
+export type { CheckboxProps } from "./checkbox/Checkbox";
