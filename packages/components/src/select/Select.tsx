@@ -78,7 +78,7 @@ export function Select({
       ) : null}
 
       {error ? (
-        <p id={errorId} style={errorStyle}>
+        <p id={errorId} role="alert" style={errorStyle}>
           {error}
         </p>
       ) : null}
