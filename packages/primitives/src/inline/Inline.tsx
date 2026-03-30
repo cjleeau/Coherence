@@ -1,4 +1,4 @@
-import type { ElementType } from "react";
+import type { CSSProperties, ElementType } from "react";
 import { cx } from "../utils/cx";
 import type { PolymorphicProps, SpacingToken } from "../types";
 
@@ -10,20 +10,20 @@ type InlineProps<T extends ElementType> = PolymorphicProps<T> & {
   wrap?: boolean;
 };
 
-const spaceClasses: Record<SpacingToken, string> = {
-  "0": "gap-0",
-  "1": "gap-1",
-  "2": "gap-2",
-  "3": "gap-3",
-  "4": "gap-4",
-  "5": "gap-5",
-  "6": "gap-6",
-  "8": "gap-8",
-  "10": "gap-10",
-  "12": "gap-12",
-  "16": "gap-16",
-  "20": "gap-20",
-  "24": "gap-24"
+const spacingVars: Record<SpacingToken, string> = {
+  "0": "var(--spacing-0)",
+  "1": "var(--spacing-1)",
+  "2": "var(--spacing-2)",
+  "3": "var(--spacing-3)",
+  "4": "var(--spacing-4)",
+  "5": "var(--spacing-5)",
+  "6": "var(--spacing-6)",
+  "8": "var(--spacing-8)",
+  "10": "var(--spacing-10)",
+  "12": "var(--spacing-12)",
+  "16": "var(--spacing-16)",
+  "20": "var(--spacing-20)",
+  "24": "var(--spacing-24)"
 };
 
 const alignClasses: Record<InlineAlign, string> = {
@@ -41,6 +41,7 @@ export function Inline<T extends ElementType = "div">({
   space = "3",
   align = "center",
   wrap = false,
+  style,
   ...rest
 }: InlineProps<T>) {
   const Component = (as || "div") as ElementType;
@@ -49,11 +50,16 @@ export function Inline<T extends ElementType = "div">({
     <Component
       className={cx(
         "flex",
-        spaceClasses[space],
         alignClasses[align],
         wrap && "flex-wrap",
         className
       )}
+      style={
+        {
+          gap: spacingVars[space],
+          ...((style as CSSProperties | undefined) ?? {})
+        } as CSSProperties
+      }
       {...rest}
     >
       {children}

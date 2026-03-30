@@ -1,5 +1,5 @@
 export { Button } from "./button/Button";
-export type { ButtonProps } from "./button/Button";
+export type { ButtonProps, ButtonVariant } from "./button/Button";
 
 export { Field } from "./field/Field";
 export type { FieldProps } from "./field/Field";
@@ -11,7 +11,8 @@ export { Textarea } from "./textarea/Textarea";
 export type { TextareaProps } from "./textarea/Textarea";
 
 export { Select } from "./select/Select";
-export type { SelectProps, SelectOption } from "./select/Select";
+export type { SelectProps } from "./select/Select";
+export type { SelectOption } from "./_internal/formTypes";
 
 export { FieldGroup } from "./field-group/FieldGroup";
 export type { FieldGroupProps } from "./field-group/FieldGroup";

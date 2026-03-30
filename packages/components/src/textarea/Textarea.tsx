@@ -1,5 +1,6 @@
 import { useId } from "react";
-import type { CSSProperties, TextareaHTMLAttributes } from "react";
+import type { CSSProperties } from "react";
+import type { TextareaControlProps } from "../_internal/formTypes";
 import {
   controlClassName,
   errorStyle,
@@ -9,11 +10,7 @@ import {
   labelStyle
 } from "../_internal/formStyles";
 
-export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
-  label: string;
-  hint?: string;
-  error?: string;
-};
+export type TextareaProps = TextareaControlProps;
 
 export function Textarea({
   label,

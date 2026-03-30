@@ -1,5 +1,6 @@
 import { useId } from "react";
-import type { CSSProperties, InputHTMLAttributes } from "react";
+import type { CSSProperties } from "react";
+import type { CheckboxControlProps } from "../_internal/formTypes";
 import {
   checkboxClassName,
   errorStyle,
@@ -8,11 +9,7 @@ import {
   labelStyle
 } from "../_internal/formStyles";
 
-export type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
-  hint?: string;
-  error?: string;
-};
+export type CheckboxProps = CheckboxControlProps;
 
 export function Checkbox({
   label,
@@ -30,12 +27,12 @@ export function Checkbox({
   const describedBy = getDescribedBy(hintId, errorId);
 
   const boxStyle: CSSProperties = {
-    width: "16px",
-    height: "16px",
+    width: "1rem",
+    height: "1rem",
     borderWidth: "1px",
     borderStyle: "solid",
     borderColor: error ? "var(--status-critical)" : "var(--border-strong)",
-    borderRadius: "4px",
+    borderRadius: "0.25rem",
     accentColor: "var(--action-primary)",
     cursor: disabled ? "not-allowed" : "pointer",
     opacity: disabled ? 0.5 : 1,

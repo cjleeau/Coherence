@@ -1,11 +1,8 @@
 import { useId } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
+import type { GroupedContentProps } from "../_internal/actionTypes";
 
-export type FieldGroupProps = {
-  title: string;
-  description?: string;
-  children?: ReactNode;
-};
+export type FieldGroupProps = GroupedContentProps;
 
 export function FieldGroup({
   title,
@@ -33,13 +30,19 @@ export function FieldGroup({
     <section
       aria-labelledby={titleId}
       aria-describedby={descriptionId}
-      className="flex w-full flex-col gap-4 rounded-xl border p-5"
+      className="flex w-full flex-col"
       style={{
+        gap: "var(--spacing-4)",
+        borderRadius: "0.75rem",
+        padding: "var(--spacing-5)",
         backgroundColor: "var(--surface-sunken)",
-        borderColor: "var(--border-subtle)"
+        border: "1px solid var(--border-subtle)"
       }}
     >
-      <div className="flex flex-col gap-2">
+      <div
+        className="flex flex-col"
+        style={{ gap: "var(--spacing-2)" }}
+      >
         <h2 id={titleId} style={titleStyle}>
           {title}
         </h2>
@@ -51,7 +54,12 @@ export function FieldGroup({
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-4">{children}</div>
+      <div
+        className="flex flex-col"
+        style={{ gap: "var(--spacing-4)" }}
+      >
+        {children}
+      </div>
     </section>
   );
 }

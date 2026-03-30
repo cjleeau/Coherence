@@ -1,5 +1,6 @@
 import { useId } from "react";
-import type { CSSProperties, SelectHTMLAttributes } from "react";
+import type { CSSProperties } from "react";
+import type { SelectControlProps, SelectOption } from "../_internal/formTypes";
 import {
   controlClassName,
   errorStyle,
@@ -9,18 +10,8 @@ import {
   labelStyle
 } from "../_internal/formStyles";
 
-export type SelectOption = {
-  label: string;
-  value: string;
-};
-
-export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
-  label: string;
-  hint?: string;
-  error?: string;
-  options: SelectOption[];
-  placeholder?: string;
-};
+export type SelectProps = SelectControlProps;
+export type { SelectOption };
 
 export function Select({
   label,

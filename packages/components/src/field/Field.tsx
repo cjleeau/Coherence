@@ -1,5 +1,6 @@
 import { useId } from "react";
-import type { CSSProperties, InputHTMLAttributes } from "react";
+import type { CSSProperties } from "react";
+import type { FieldControlProps } from "../_internal/formTypes";
 import {
   controlClassName,
   errorStyle,
@@ -9,11 +10,7 @@ import {
   labelStyle
 } from "../_internal/formStyles";
 
-export type FieldProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
-  hint?: string;
-  error?: string;
-};
+export type FieldProps = FieldControlProps;
 
 export function Field({
   label,
@@ -57,7 +54,7 @@ export function Field({
       ) : null}
 
       {error ? (
-        <p id={errorId} style={errorStyle}>
+        <p id={errorId} role="alert" style={errorStyle}>
           {error}
         </p>
       ) : null}
