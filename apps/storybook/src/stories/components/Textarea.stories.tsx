@@ -20,6 +20,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
+  args: {
+    label: "Project summary",
+    placeholder: "Write a short summary..."
+  },
   render: () => (
     <Box
       className="min-h-screen p-8"
@@ -46,94 +50,25 @@ export const Overview: Story = {
         </Stack>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Example</Heading>
+          <Stack className="max-w-2xl" space="4">
+            <Heading size="lg">Usage</Heading>
 
-            <Stack className="max-w-2xl" space="4">
-              <Textarea
-                label="Project summary"
-                placeholder="Write a short summary..."
-                hint="Keep it brief and clear."
-              />
-
-              <Textarea
-                label="Implementation notes"
-                defaultValue="Primitive layer complete. Components now in progress."
-                rows={5}
-              />
-
-              <Textarea
-                label="Risk notes"
-                placeholder="Document any issues here..."
-                error="Risk notes are required."
-              />
-
-              <Textarea
-                label="Disabled notes"
-                placeholder="Unavailable"
-                disabled
-              />
-            </Stack>
+            <Textarea
+              label="Project summary"
+              placeholder="Write a short summary..."
+              hint="Keep it brief and clear."
+            />
           </Stack>
         </Box>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">When to use</Heading>
+            <Heading size="lg">Guidance</Heading>
 
             <Stack space="2">
-              <Text>• project summaries</Text>
-              <Text>• implementation notes</Text>
-              <Text>• descriptions and comments</Text>
-              <Text>• any input that exceeds a single line</Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Accessibility</Heading>
-
-            <Stack space="2">
-              <Text tone="secondary">
-                Textarea creates a label-to-control relationship and connects
-                hint and error content with <code>aria-describedby</code>.
-              </Text>
-              <Text tone="secondary">
-                Use the label to describe the expected content, not just the topic.
-              </Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Do / Don’t</Heading>
-
-            <Stack space="4">
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Do</Text>
-                  <Text tone="secondary">
-                    Use Textarea for content that naturally spans multiple lines.
-                  </Text>
-                  <Text tone="secondary">
-                    Provide hints when the expected level of detail is unclear.
-                  </Text>
-                </Stack>
-              </Box>
-
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Don’t</Text>
-                  <Text tone="secondary">
-                    Don’t use Textarea for short, structured values that belong in Field.
-                  </Text>
-                  <Text tone="secondary">
-                    Don’t leave users guessing how much detail is required.
-                  </Text>
-                </Stack>
-              </Box>
+              <Text>• use for content that spans multiple lines</Text>
+              <Text>• provide hints when expected detail is unclear</Text>
+              <Text>• prefer Field for short structured values</Text>
             </Stack>
           </Stack>
         </Box>
@@ -143,6 +78,10 @@ export const Overview: Story = {
 };
 
 export const States: Story = {
+  args: {
+    label: "Project summary",
+    placeholder: "Write a short summary..."
+  },
   render: () => (
     <Stack className="max-w-2xl" space="4">
       <Textarea

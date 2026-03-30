@@ -21,6 +21,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
+  args: {
+    label: "Email",
+    type: "email",
+    placeholder: "you@example.com"
+  },
   render: () => (
     <Box
       className="min-h-screen p-8"
@@ -48,8 +53,8 @@ export const Overview: Story = {
         </Stack>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Example</Heading>
+          <Stack className="max-w-xl" space="4">
+            <Heading size="lg">Usage</Heading>
 
             <Field
               label="Email"
@@ -62,62 +67,12 @@ export const Overview: Story = {
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">When to use</Heading>
+            <Heading size="lg">Guidance</Heading>
 
             <Stack space="2">
-              <Text>• text entry</Text>
-              <Text>• email and numeric values</Text>
-              <Text>• identifiers and names</Text>
-              <Text>• metadata capture in forms</Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Accessibility</Heading>
-
-            <Stack space="2">
-              <Text tone="secondary">
-                Field creates a real label-to-input relationship and connects
-                hint and error content with <code>aria-describedby</code>.
-              </Text>
-              <Text tone="secondary">
-                Use clear labels and reserve placeholder text for examples,
-                not as the only identifier.
-              </Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Do / Don’t</Heading>
-
-            <Stack space="4">
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Do</Text>
-                  <Text tone="secondary">
-                    Provide a clear label for every field.
-                  </Text>
-                  <Text tone="secondary">
-                    Use hint and error text to guide successful completion.
-                  </Text>
-                </Stack>
-              </Box>
-
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Don’t</Text>
-                  <Text tone="secondary">
-                    Don’t rely on placeholder text alone.
-                  </Text>
-                  <Text tone="secondary">
-                    Don’t overload a single field with multiple meanings.
-                  </Text>
-                </Stack>
-              </Box>
+              <Text>• always provide a visible label</Text>
+              <Text>• use hint text for useful guidance</Text>
+              <Text>• show errors near the field they relate to</Text>
             </Stack>
           </Stack>
         </Box>
@@ -127,6 +82,11 @@ export const Overview: Story = {
 };
 
 export const States: Story = {
+  args: {
+    label: "Email",
+    type: "email",
+    placeholder: "you@example.com"
+  },
   render: () => (
     <Stack className="max-w-xl" space="4">
       <Field
@@ -147,28 +107,6 @@ export const States: Story = {
         placeholder="Unavailable"
         disabled
         hint="This field is currently disabled."
-      />
-    </Stack>
-  )
-};
-
-export const ValueExamples: Story = {
-  render: () => (
-    <Stack className="max-w-xl" space="4">
-      <Field
-        label="Project name"
-        defaultValue="Coherence"
-      />
-
-      <Field
-        label="Email"
-        type="email"
-        defaultValue="team@example.com"
-      />
-
-      <Field
-        label="Reference"
-        placeholder="Enter a reference"
       />
     </Stack>
   )

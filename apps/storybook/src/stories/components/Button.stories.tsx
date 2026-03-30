@@ -27,6 +27,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
+  args: {
+    children: "Button",
+    variant: "primary",
+    disabled: false
+  },
   render: () => (
     <Box
       className="min-h-screen p-8"
@@ -43,7 +48,7 @@ export const Overview: Story = {
           </Text>
 
           <Heading as="h1" size="xl">
-            Button is the primary action component
+            Button is the standard action component
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
@@ -54,7 +59,7 @@ export const Overview: Story = {
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">Example</Heading>
+            <Heading size="lg">Usage</Heading>
 
             <Inline space="4" align="center" wrap>
               <Button variant="primary">Primary action</Button>
@@ -68,61 +73,12 @@ export const Overview: Story = {
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">When to use</Heading>
+            <Heading size="lg">Guidance</Heading>
 
             <Stack space="2">
-              <Text>• submit or save actions</Text>
-              <Text>• confirm or continue actions</Text>
-              <Text>• secondary actions such as cancel or back</Text>
-              <Text>• grouped action rows</Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Accessibility</Heading>
-
-            <Stack space="2">
-              <Text tone="secondary">
-                Button is a native <code>button</code> element.
-              </Text>
-              <Text tone="secondary">
-                Use clear action labels and prefer the native disabled state
-                rather than custom blocking logic.
-              </Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Do / Don’t</Heading>
-
-            <Stack space="4">
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Do</Text>
-                  <Text tone="secondary">
-                    Use Button for real actions and form controls.
-                  </Text>
-                  <Text tone="secondary">
-                    Choose primary or secondary based on action importance.
-                  </Text>
-                </Stack>
-              </Box>
-
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Don’t</Text>
-                  <Text tone="secondary">
-                    Don’t use Button as a navigation link when a real link is required.
-                  </Text>
-                  <Text tone="secondary">
-                    Don’t place too many primary buttons in the same group.
-                  </Text>
-                </Stack>
-              </Box>
+              <Text>• use primary for the main action in a group</Text>
+              <Text>• use secondary for supporting actions</Text>
+              <Text>• use disabled only when action is currently unavailable</Text>
             </Stack>
           </Stack>
         </Box>
@@ -131,7 +87,12 @@ export const Overview: Story = {
   )
 };
 
-export const Variants: Story = {
+export const States: Story = {
+  args: {
+    children: "Button",
+    variant: "primary",
+    disabled: false
+  },
   render: () => (
     <Inline space="4" align="center" wrap>
       <Button variant="primary">Primary</Button>
@@ -139,16 +100,6 @@ export const Variants: Story = {
       <Button variant="secondary" disabled>
         Disabled
       </Button>
-    </Inline>
-  )
-};
-
-export const ActionRow: Story = {
-  render: () => (
-    <Inline space="3" align="center" wrap>
-      <Button variant="secondary">Cancel</Button>
-      <Button variant="secondary">Save draft</Button>
-      <Button variant="primary">Submit</Button>
     </Inline>
   )
 };

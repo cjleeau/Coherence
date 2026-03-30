@@ -26,6 +26,10 @@ const roleOptions = [
 ];
 
 export const Overview: Story = {
+  args: {
+    title: "Basic fields",
+    description: "Single-line inputs for account and project metadata."
+  },
   render: () => (
     <Box
       className="min-h-screen p-8"
@@ -47,7 +51,7 @@ export const Overview: Story = {
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
             Use FieldGroup to organize related inputs under a shared title and
-            optional description. It provides consistent grouping and spacing.
+            optional description.
           </Text>
         </Stack>
 
@@ -82,62 +86,12 @@ export const Overview: Story = {
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">When to use</Heading>
+            <Heading size="lg">Guidance</Heading>
 
             <Stack space="2">
-              <Text>• form sections</Text>
-              <Text>• grouped related inputs</Text>
-              <Text>• sections requiring shared description or context</Text>
-              <Text>• larger forms with multiple logical parts</Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Accessibility</Heading>
-
-            <Stack space="2">
-              <Text tone="secondary">
-                FieldGroup uses a labelled section with optional descriptive content
-                to provide structure for assistive technologies and visual scanning.
-              </Text>
-              <Text tone="secondary">
-                Titles should describe the group clearly and descriptions should
-                explain shared context or expectations.
-              </Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Do / Don’t</Heading>
-
-            <Stack space="4">
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Do</Text>
-                  <Text tone="secondary">
-                    Use FieldGroup to create clear sections in longer forms.
-                  </Text>
-                  <Text tone="secondary">
-                    Provide titles and descriptions that help orient the user.
-                  </Text>
-                </Stack>
-              </Box>
-
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Don’t</Text>
-                  <Text tone="secondary">
-                    Don’t create groups with unrelated controls mixed together.
-                  </Text>
-                  <Text tone="secondary">
-                    Don’t use FieldGroup when a single standalone field is enough.
-                  </Text>
-                </Stack>
-              </Box>
+              <Text>• group related controls together</Text>
+              <Text>• use a title that describes the shared purpose</Text>
+              <Text>• add description when users need extra context</Text>
             </Stack>
           </Stack>
         </Box>
@@ -146,7 +100,11 @@ export const Overview: Story = {
   )
 };
 
-export const Variants: Story = {
+export const States: Story = {
+  args: {
+    title: "Basic fields",
+    description: "Single-line inputs for account and project metadata."
+  },
   render: () => (
     <Stack className="max-w-3xl" space="5">
       <FieldGroup

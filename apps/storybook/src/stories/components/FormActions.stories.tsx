@@ -32,18 +32,18 @@ export const Overview: Story = {
           </Text>
 
           <Heading as="h1" size="xl">
-            FormActions aligns and groups form action buttons
+            FormActions groups related form action buttons
           </Heading>
 
           <Text size="lg" tone="secondary" className="max-w-2xl">
-            Use FormActions to present related form actions in a consistent row,
-            usually aligned to the end of a form or grouped section.
+            Use FormActions to keep submit, cancel, save and continue actions in
+            a consistent row at the end of a form or section.
           </Text>
         </Stack>
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">Example</Heading>
+            <Heading size="lg">Usage</Heading>
 
             <FormActions>
               <Button variant="secondary">Cancel</Button>
@@ -55,61 +55,12 @@ export const Overview: Story = {
 
         <Box className="rounded-xl p-6" surface="raised" border="subtle">
           <Stack space="4">
-            <Heading size="lg">When to use</Heading>
+            <Heading size="lg">Guidance</Heading>
 
             <Stack space="2">
-              <Text>• end of forms</Text>
-              <Text>• grouped button rows</Text>
-              <Text>• submit and cancel action sets</Text>
-              <Text>• save and continue patterns</Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Accessibility</Heading>
-
-            <Stack space="2">
-              <Text tone="secondary">
-                FormActions exposes a grouped action region with an accessible label.
-              </Text>
-              <Text tone="secondary">
-                Keep button order and labelling clear so users understand the
-                primary path and any secondary alternatives.
-              </Text>
-            </Stack>
-          </Stack>
-        </Box>
-
-        <Box className="rounded-xl p-6" surface="raised" border="subtle">
-          <Stack space="4">
-            <Heading size="lg">Do / Don’t</Heading>
-
-            <Stack space="4">
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Do</Text>
-                  <Text tone="secondary">
-                    Group related actions together and keep primary action clear.
-                  </Text>
-                  <Text tone="secondary">
-                    Use a predictable order for secondary and primary actions.
-                  </Text>
-                </Stack>
-              </Box>
-
-              <Box className="rounded-lg p-4" surface="sunken" border="subtle">
-                <Stack space="2">
-                  <Text weight="semibold">Don’t</Text>
-                  <Text tone="secondary">
-                    Don’t scatter related action buttons across the form.
-                  </Text>
-                  <Text tone="secondary">
-                    Don’t create multiple competing primary actions in one row.
-                  </Text>
-                </Stack>
-              </Box>
+              <Text>• group related actions together</Text>
+              <Text>• make the primary path obvious</Text>
+              <Text>• keep button order predictable</Text>
             </Stack>
           </Stack>
         </Box>
@@ -118,7 +69,7 @@ export const Overview: Story = {
   )
 };
 
-export const Patterns: Story = {
+export const States: Story = {
   render: () => (
     <Stack className="max-w-3xl" space="5">
       <FormActions>
